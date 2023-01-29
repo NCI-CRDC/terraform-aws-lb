@@ -10,7 +10,8 @@ variable "env" {
   sensitive   = false
 
   validation {
-    condition = contains(["dev", "qa", "stage", "prod"], var.env)
+    condition     = contains(["dev", "qa", "stage", "prod"], var.env)
+    error_message = "valid values for env are 'dev', 'qa', 'stage', and 'prod'"
   }
 }
 
