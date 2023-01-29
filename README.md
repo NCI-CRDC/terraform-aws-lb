@@ -5,6 +5,32 @@ A repository template for creating reusable terraform modules to support infrast
 
 # Usage 
 
+The example below demonstrates how this module can be used from a remote project repository. Please note, since this is a public repository, using SSH authentication mechanisms is not required. 
+
+<pre><code>
+module "alb" {
+  source = "github.com/NCI-CTOS/terraform-aws-lb?ref=v1.0.0"
+
+  app     = var.app
+  env     = terraform.workspace
+  program = var.program
+
+  access_logs_enabled        = var.alb_access_logs_enabled
+  access_logs_bucket         = var.alb_access_logs_bucket
+  access_logs_prefix         = var.alb_access_logs_prefix
+  desync_mitigation_mode     = var.alb_desync_mitigation_mode
+  drop_invalid_header_fields = var.alb_drop_invalid_header_fields
+  enable_deletion_protection = var.alb_enable_deletion_protection
+  enable_http2               = var.alb_enable_http2
+  idle_timeout               = var.alb_idle_timeout
+  internal                   = local.alb_internal
+  load_balancer_type         = var.alb_load_balancer_type
+  preserve_host_header       = var.alb_preserve_host_header
+  security_groups            = module.alb_sg.id
+  subnets                    = local.alb_subnets
+}
+</code></pre>
+
 <!-- BEGIN_TF_DOCS -->
 # Requirements
 
