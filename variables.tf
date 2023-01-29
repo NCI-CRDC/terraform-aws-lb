@@ -10,8 +10,7 @@ variable "env" {
   sensitive   = false
 
   validation {
-    condition     = contains(["dev", "qa", "stage", "prod"], var.env)
-    error_message = "valid values for env are 'dev', 'qa', 'stage', and 'prod'"
+    condition = contains(["dev", "qa", "stage", "prod"], var.env)
   }
 }
 
@@ -109,4 +108,8 @@ variable "security_groups" {
   description = "security group(s) to associate with the load balancer"
 }
 
+variable "subnets" {
+  type        = set(string)
+  description = "the subnets to associate with the load balancer"
+}
 

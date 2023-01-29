@@ -12,6 +12,7 @@ resource "aws_lb" "this" {
   load_balancer_type               = var.load_balancer_type
   preserve_host_header             = var.preserve_host_header
   security_groups                  = var.security_groups
+  subnets                          = var.subnts
 
   access_logs {
     enabled = var.access_logs_enabled
