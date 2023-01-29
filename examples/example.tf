@@ -16,6 +16,6 @@ module "alb" {
   internal                   = false
   load_balancer_type         = "application"
   preserve_host_header       = false
-  security_groups            = [ "sg-123456789" ]
-  subnets                    = [ "subnet-A12345", "subnet-B12345" ]
+  security_groups            = ["sg-123456789"]
+  subnets                    = ["subnet-A12345", "subnet-B12345"]
 }
