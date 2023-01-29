@@ -19,4 +19,3 @@ resource "aws_lb" "this" {
     prefix  = var.access_logs_prefix
   }
 }
-
