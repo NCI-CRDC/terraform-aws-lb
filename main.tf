@@ -16,7 +16,7 @@ resource "aws_lb" "this" {
 
   access_logs {
     enabled = var.access_logs_enabled
-    bucket  = var.access_logs_bucket
-    prefix  = var.access_logs_prefix
+    bucket  = local.access_logs_bucket
+    prefix  = local.access_logs_prefix
   }
 }
